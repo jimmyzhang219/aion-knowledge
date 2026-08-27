@@ -1,0 +1,46 @@
+# Python
+__pycache__/
+*.py[cod]
+*.egg-info/
+dist/
+build/
+*.egg
+.eggs/
+
+# Virtual environment
+.env
+.venv/
+
+# IDE
+.idea/
+.vscode/
+.zed/
+.jbeval/
+*.swp
+*.swo
+*~
+
+# OS
+.DS_Store
+Thumbs.db
+
+# Project specific
+data/
+temp/
+*.log
+
+# Worktrees
+.worktrees/
+
+# Local-only
+.claude/
+docs/superpowers/
+docs/verification-reports/
+CLAUDE.md
+
+# Testing
+.coverage
+htmlcov/
+.pytest_cache/
+.venv_reorg
+.venv

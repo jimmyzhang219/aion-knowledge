@@ -1,0 +1,60 @@
+{
+  "//": "模型注册表 — 记录各模型的上下文窗口与输出上限。",
+  "//_note": "在 registry 中找不到的模型名，会回退到默认值 context_window=8192（保守）。键名可含 * 通配符（如 \"qwen3*\"），精确键优先匹配。可在此文件追加条目。",
+
+  "gpt-4o":              {"provider": "openai",    "context_window": 128000, "max_output": 16384},
+  "gpt-4o-2024-11-20":   {"provider": "openai",    "context_window": 128000, "max_output": 16384},
+  "gpt-4o-mini":         {"provider": "openai",    "context_window": 128000, "max_output": 16384},
+  "gpt-4o-mini-2024-07-18": {"provider": "openai", "context_window": 128000, "max_output": 16384},
+  "gpt-4-turbo":         {"provider": "openai",    "context_window": 128000, "max_output": 4096},
+  "gpt-4":               {"provider": "openai",    "context_window": 8192,   "max_output": 8192},
+  "gpt-4-32k":           {"provider": "openai",    "context_window": 32768,  "max_output": 8192},
+  "gpt-3.5-turbo":       {"provider": "openai",    "context_window": 16385,  "max_output": 4096},
+  "o1":                  {"provider": "openai",    "context_window": 200000, "max_output": 100000},
+  "o1-2024-12-17":       {"provider": "openai",    "context_window": 200000, "max_output": 100000},
+  "o3-mini":             {"provider": "openai",    "context_window": 200000, "max_output": 100000},
+  "o4-mini":             {"provider": "openai",    "context_window": 200000, "max_output": 100000},
+
+  "claude-sonnet-4":         {"provider": "anthropic", "context_window": 200000, "max_output": 8192},
+  "claude-sonnet-4-20250514": {"provider": "anthropic", "context_window": 200000, "max_output": 8192},
+  "claude-opus-4":           {"provider": "anthropic", "context_window": 200000, "max_output": 4096},
+  "claude-haiku-3-5":        {"provider": "anthropic", "context_window": 200000, "max_output": 8192},
+  "claude-3-opus":           {"provider": "anthropic", "context_window": 200000, "max_output": 4096},
+  "claude-3-sonnet":         {"provider": "anthropic", "context_window": 200000, "max_output": 4096},
+  "claude-3-haiku":          {"provider": "anthropic", "context_window": 200000, "max_output": 4096},
+
+  "deepseek-v4":         {"provider": "deepseek",  "context_window": 1048576, "max_output": 8192},
+  "deepseek-v4-*":       {"provider": "deepseek",  "context_window": 1048576, "max_output": 8192},
+  "deepseek-v3":         {"provider": "deepseek",  "context_window": 65536,  "max_output": 8192},
+  "deepseek-r1":         {"provider": "deepseek",  "context_window": 65536,  "max_output": 8192},
+
+  "gemini-2.5-flash":    {"provider": "gemini",    "context_window": 1048576, "max_output": 8192},
+  "gemini-2.5-pro":      {"provider": "gemini",    "context_window": 1048576, "max_output": 8192},
+  "gemini-2.0-flash":    {"provider": "gemini",    "context_window": 1048576, "max_output": 8192},
+
+  "glm-5.2":             {"provider": "zhipu",     "context_window": 1048576, "max_output": 8192},
+  "glm-4-plus":          {"provider": "zhipu",     "context_window": 128000, "max_output": 4096},
+  "glm-4":               {"provider": "zhipu",     "context_window": 128000, "max_output": 4096},
+  "glm-4v":              {"provider": "zhipu",     "context_window": 128000, "max_output": 4096},
+
+  "qwen-plus":           {"provider": "alicloud",  "context_window": 131072, "max_output": 8192},
+  "qwen-max":            {"provider": "alicloud",  "context_window": 32768,  "max_output": 8192},
+  "qwen-turbo":          {"provider": "alicloud",  "context_window": 131072, "max_output": 8192},
+  "qwen-vl-plus":        {"provider": "alicloud",  "context_window": 131072, "max_output": 8192},
+  "qwen3.7-max":         {"provider": "alicloud",  "context_window": 1048576, "max_output": 32768},
+  "qwen3.7-plus":        {"provider": "alicloud",  "context_window": 1048576, "max_output": 32768},
+  "qwen3.7-turbo":       {"provider": "alicloud",  "context_window": 1048576, "max_output": 32768},
+  "qwen3*":              {"provider": "alicloud",  "context_window": 1048576, "max_output": 32768},
+
+  "llama3.1-8b":         {"provider": "ollama",    "context_window": 131072, "max_output": 8192},
+  "llama3.1-70b":        {"provider": "ollama",    "context_window": 131072, "max_output": 8192},
+  "llama3-8b":           {"provider": "ollama",    "context_window": 8192,   "max_output": 4096},
+  "mistral":             {"provider": "ollama",    "context_window": 8192,   "max_output": 4096},
+  "qwen2.5-7b":          {"provider": "ollama",    "context_window": 131072, "max_output": 8192},
+  "qwen2.5-32b":         {"provider": "ollama",    "context_window": 131072, "max_output": 8192},
+  "qwen2":               {"provider": "ollama",    "context_window": 32768,  "max_output": 8192},
+  "bge-m3":              {"provider": "ollama",    "context_window": 8192,   "max_output": 0},
+
+  "text-embedding-3-small": {"provider": "openai", "context_window": 8191,  "max_output": 0},
+  "text-embedding-3-large": {"provider": "openai", "context_window": 8191,  "max_output": 0}
+}

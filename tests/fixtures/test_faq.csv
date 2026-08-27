@@ -1,0 +1,3 @@
+standard_question,similar_questions,negative_questions,answers,category
+什么是AION知识库,AION知识库是什么##AION知识库有哪些功能,不是AION是什么,AION知识库是一个专注于RAG三阶段核心流程的知识库系统。,产品介绍
+如何上传文档,怎么上传文件##上传文档的方法,不想上传文档,通过API接口上传文件即可自动触发知识摄入管道。,使用指南
