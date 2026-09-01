@@ -405,6 +405,43 @@ curl -N -X POST http://localhost:19531/api/v1/search \
 }
 ```
 
+#### DeepSeek-Harness（dsh）
+
+dsh 不使用 JSON `mcpServers`，而是通过 Cordis overlay 以 `@deepseek-ai/dsh-mcp-client` 插件接入。本工程根目录已提供现成的 overlay 文件 [`aion-knowledge.cordis.yml`](aion-knowledge.cordis.yml)（若 dsh 与 Aion Knowledge 不在同一台机器，把 `url` 改为实际服务地址）：
+
+```yaml
+- insert:
+    - id: aion-knowledge
+      name: '@deepseek-ai/dsh-mcp-client'
+      config:
+        serverName: aion-knowledge
+        transport: streamable-http
+        url: http://localhost:19531/mcp
+```
+
+**永久挂载（推荐）：** 在 dsh 所在机器上，把上述 `insert` 条目**追加**进用户 patch 层即可——手动粘贴编辑，或拷贝文件后用 `cat >>` 合并（文件不存在则新建；已有内容勿覆盖，其中可能含其他用户 patch）：
+
+```sh
+cat aion-knowledge.cordis.yml >> ~/.dsh/profiles/web/cordis.patch.yml
+```
+
+- 仅 `web` profile 生效：`$DSH_HOME/profiles/web/cordis.patch.yml`（`DSH_HOME` 默认 `~/.dsh`）
+- 本机所有 profile 生效：`$DSH_HOME/cordis.patch.yml`
+
+之后正常启动即自动挂载，无需 `--patch`，合并完成后拷贝的文件也可删除：
+
+```sh
+npx @deepseek-ai/dsh web
+```
+
+**临时单次挂载（可选）：** 仅此方式需要把 yml 文件实际保留在 dsh 所在机器上，启动时指定路径：
+
+```sh
+npx @deepseek-ai/dsh web --patch /path/to/aion-knowledge.cordis.yml
+```
+
+连接后工具以 `mcp__<serverName>__<tool>` 形式暴露，如 `mcp__aion-knowledge__search_knowledge`。若服务未启动，dsh 会在插件激活时连接失败（可用 `failOnStartupError: false` 容忍）。
+
 #### Claude Code
 
 在项目 `.claude/settings.local.json` 中添加：

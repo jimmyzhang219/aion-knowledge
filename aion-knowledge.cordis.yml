@@ -1,0 +1,21 @@
+# Aion Knowledge — DeepSeek-Harness（dsh）MCP 接入 overlay
+#
+# 前置：Aion Knowledge 服务已启动（python -m aion_knowledge），
+#       MCP Streamable HTTP 端点位于 http://localhost:19531/mcp。
+#       若 dsh 与 Aion Knowledge 不在同一台机器，请把下方 url 改为实际服务地址。
+#
+# 用法：
+#   1. 临时单次挂载：
+#      npx @deepseek-ai/dsh web --patch <本文件路径>
+#   2. 永久挂载（追加合并，勿覆盖已有文件，其中可能含其他用户 patch）：
+#      仅 web profile 生效：追加到 $DSH_HOME/profiles/web/cordis.patch.yml
+#      本机所有 profile 生效：追加到 $DSH_HOME/cordis.patch.yml
+#      （DSH_HOME 默认 ~/.dsh）
+#      之后 npx @deepseek-ai/dsh web 启动即自动挂载，无需 --patch。
+- insert:
+    - id: aion-knowledge
+      name: '@deepseek-ai/dsh-mcp-client'
+      config:
+        serverName: aion-knowledge
+        transport: streamable-http
+        url: http://localhost:19531/mcp
