@@ -48,6 +48,9 @@ class Settings(BaseSettings):
         populate_by_name=True,
     )
 
+    # HTTP 服务监听端口
+    port: int = 19531
+
     # 数据库
     db_url: str = "postgresql+asyncpg://localhost:5432/aion_knowledge"
 

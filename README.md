@@ -122,7 +122,7 @@
 python -m aion_knowledge
 ```
 
-默认监听 `http://localhost:19531`。如需自定义端口，通过环境变量 `AION_PORT` 或修改 `.env` 配置——启动入口当前使用固定端口，暂不支持 CLI `--port` 参数。
+默认监听 `http://localhost:19531`。如需自定义端口，在 `.env` 中设置 `AION_PORT`（例如 `AION_PORT=8080`）或通过环境变量 `AION_PORT` 覆盖。
 
 ---
 

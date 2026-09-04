@@ -9,6 +9,7 @@ import os
 import uvicorn
 
 from aion_knowledge.api import create_app
+from aion_knowledge.common.config import settings
 from aion_knowledge.common.logger import setup_logging
 
 app = create_app()
@@ -22,7 +23,7 @@ def main() -> None:
     config = uvicorn.Config(
         "aion_knowledge.__main__:app",
         host="0.0.0.0",
-        port=19531,
+        port=settings.port,
         reload=False,
         log_config=None,
         # 默认 None 会无限期等待进行中的请求/连接排空，PyCharm Stop 第一次点击无效

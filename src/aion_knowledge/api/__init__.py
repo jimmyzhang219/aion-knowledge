@@ -27,7 +27,7 @@ async def lifespan(app: FastAPI) -> AsyncIterator[None]:
     setup_logging()
     logger.info(
         "Aion Knowledge API starting on port %d",
-        app.state.port if hasattr(app.state, "port") else 19531,
+        app.state.port if hasattr(app.state, "port") else settings.port,
     )
 
     await init_db()
@@ -76,7 +76,7 @@ def create_app() -> FastAPI:
         version="0.1.0",
         lifespan=lifespan,
     )
-    app.state.port = 19531
+    app.state.port = settings.port
 
     register_middleware(app)
     register_routers(app)
